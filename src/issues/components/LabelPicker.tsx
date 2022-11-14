@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
 
-const getLabels = async () => {
-  const response = await fetch('https://api.github.com/repos/facebook/react/labels');
-  const data = await response.json();
+import { githubApi } from "../../api/githubApi";
+import { Label } from '../interfaces/label';
+
+const getLabels = async (): Promise<Label[]> => {
+  const { data } = await githubApi.get<Label[]>('/labels');
   return data;
 };
 
@@ -10,6 +12,9 @@ export const LabelPicker = () => {
   const labelQuery = useQuery(
     ['labels'],
     getLabels,
+    {
+      refetchOnWindowFocus: false,
+    }
   );
   
   return (
