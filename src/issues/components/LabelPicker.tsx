@@ -5,6 +5,8 @@ export const LabelPicker = () => {
   const labelsQuery = useLabels();
   
   // isLoading != isFetching
+  // isLoading only for initial data fetch
+  // isFetching everytime the data is being fetched
   if (labelsQuery.isLoading) {
     return (<h1>Loading...</h1>);
   }
