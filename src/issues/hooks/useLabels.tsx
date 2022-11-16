@@ -14,7 +14,7 @@ export const useLabels = () => {
     ['labels'],
     getLabels,
     {
-      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60 * 60
     },
   );
   return labelsQuery;
