@@ -1,6 +1,8 @@
+import { useIssues } from '../hooks';
 import { IssueItem } from './IssueItem';
 
 export const IssueList = () => {
+    const { issuesQuery } = useIssues();
     return (
         <div className="card border-white">
             <div className="card-header bg-dark">
