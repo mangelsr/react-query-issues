@@ -10,9 +10,9 @@ const getIssueInfo = async (issueNumber: number):Promise<Issue> => {
 };
 
 export const useIssue = (issueNumber: number) => {
-  const query = useQuery(
+  const issueQuery = useQuery(
     [ 'issue', issueNumber ],
     () => getIssueInfo(issueNumber),
   );
-  return query;
+  return { issueQuery };
 };
