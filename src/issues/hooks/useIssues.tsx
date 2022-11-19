@@ -18,7 +18,8 @@ const getIssues = async (labels: string[] = [], state?: State):Promise<Issue[]> 
     const labelsString = labels.join(',');
     params.append('labels', labelsString);
   }
-  const { data } = await githubApi.get<Issue[]>('/issues');
+  params.append('page', '1');
+  params.append('per_page', '5');
   return data;
 };
 
