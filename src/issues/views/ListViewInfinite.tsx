@@ -32,7 +32,13 @@ export const ListViewInfinite = () => {
                 onStateChanged={ (newState) => setState(newState) }
               />
         }
-        <button className='btn btn-outline-primary mt-2'>Load more...</button>
+        <button
+          className='btn btn-outline-primary mt-2'
+          disabled={ !issuesQuery.hasNextPage || issuesQuery.isFetching }
+          onClick={() => issuesQuery.fetchNextPage()}
+        >
+          Load more...
+        </button>
       </div>
       
       <div className="col-4">
