@@ -36,6 +36,7 @@ export const ListView = () => {
           <button
             className='btn btn-outline-primary'
             onClick={prevPage}
+            disabled={issuesQuery.isFetching}
           >
             Prev
           </button>
@@ -43,6 +44,7 @@ export const ListView = () => {
           <button
             className='btn btn-outline-primary'
             onClick={nextPage}
+            disabled={issuesQuery.isFetching}
           >
             Next
           </button>
